@@ -5,9 +5,9 @@ MAINTAINER muyi317 <296280063@qq.com>
 ARG JAR_FILE
 
 # 添加 Spring Boot 包
-ADD target/${JAR_FILE} app.jar
+ADD target/${JAR_FILE} patientsmanager-0.0.1-SNAPSHOT.jar
 
 EXPOSE 8090
 
 # 执行启动命令
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","patientsmanager-0.0.1-SNAPSHOT.jar"]
