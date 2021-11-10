@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.muyi</groupId>
-    <artifactId>PatientsManager</artifactId>
+    <artifactId>patientsmanager</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>PatientsManager</name>
-    <description>PatientsManager</description>
+    <name>patientsmanager</name>
+    <description>patientsmanager</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -67,6 +67,28 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.13</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <repository>javastack/${project.name}</repository>
+                    <tag>${project.version}</tag>
+                    <buildArgs>
+                        <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                    </buildArgs>
+                    <dockerfile>src/main/docker/Dockerfile</dockerfile>
+                </configuration>
             </plugin>
         </plugins>
     </build>
