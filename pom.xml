@@ -87,7 +87,7 @@
                     <buildArgs>
                         <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
                     </buildArgs>
-                    <dockerfile>src/main/docker/Dockerfile</dockerfile>
+                    <dockerfile>Dockerfile</dockerfile>
                 </configuration>
             </plugin>
         </plugins>
